@@ -1,26 +1,14 @@
 #!/usr/bin/env python
 """
 Decode a http query string replace escape codes with their actual representations.
-Usage: decode-query-string [querystring]
+Usage: qstring [querystring]
 """
 from sys import argv
 
-script, querystring = argv
-
 escape_code = ""
 decoded_querystring = ""
+querystring = argv[1]
 i = 0
-
-#{{{
-# %60 `
-# %27 '
-# %3C >
-# %3E <
-# %22 "
-# %28 (
-# %29 )
-#}}}
-
 while i < len(querystring):
     if querystring[i] == "%":
         escape_code = querystring[i:i+3]
